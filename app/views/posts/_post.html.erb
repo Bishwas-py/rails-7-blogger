@@ -1,0 +1,13 @@
+<div id="<%= dom_id post %>" class="post-preview">
+  <%= link_to post do %>
+    <h2 class="post-title"><%= post.title %></h2>
+    <h3 class="post-subtitle"><%= post.body %></h3>
+  <% end %>
+  <p class="post-meta">
+    Posted by
+    <a href="#!"><%= post.user.name || post.user.email %></a>
+    on <%= post.created_at.to_fs %>
+  </p>
+</div>
+<hr class="my-4"/>
+
