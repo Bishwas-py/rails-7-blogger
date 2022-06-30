@@ -1,0 +1,27 @@
+<div class="card-body p-4">
+  <div class="d-flex flex-start">
+    <img class="rounded-circle shadow-1-strong me-3"
+         src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp" alt="avatar" width="60"
+         height="60"/>
+    <div class="w-100">
+      <h6 class="fw-bold mb-1"><%= comment.user.name %>></h6>
+      <div class="d-flex align-items-center mb-3">
+        <span class="small mb-0">
+          <%= time_ago_in_words(comment.created_at) %>
+          <span class="badge bg-success">Approved</span>
+        </span>
+      </div>
+      <p class="mb-0">
+        <%= comment.body %>
+      </p>
+
+      <div class="d-flex gap-3 justify-content-end">
+        <a href="#!" class="link-muted"><%= fa_icon "heart", class: "btn rounded btn-sm btn-warning text-white" %></a>
+        <% if current_user == comment.user %>
+          <%= button_to '', [post, comment], method: :delete, class: "btn rounded btn-sm btn-danger fa fa-trash text-white" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="my-0" style="height: 1px;"/>

@@ -1,9 +1,30 @@
-
 <%= render "article" %>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+<div class="d-flex gap-3 mb-3">
+  <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary btn-sm" %>
+  <%= link_to "Back to posts", posts_path, class: "btn btn-warning btn-sm" %>
 </div>
+
+<%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-danger btn-sm" %>
+<%= render "comments/form", post: @post %>
+
+<div class="container my-5 py-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12 col-lg-10">
+      <div class="card text-dark rounded">
+        <div class="card-body p-4">
+          <h4 class="mb-0">Recent comments</h4>
+          <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+        </div>
+        <hr class="my-0" />
+        <% @comments.each do |comment| %>
+          <%= render "comments/index", post: @post, comment: comment %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

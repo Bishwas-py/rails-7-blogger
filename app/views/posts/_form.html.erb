@@ -17,11 +17,16 @@
   </div>
 
   <div class="mb-4">
+    <%= form.label :subtitle, class: "form-label" %>
+    <%= form.text_field :subtitle, class: "form-control" %>
+  </div>
+
+  <div class="mb-4">
     <%= form.label :body, class: "form-label" %>
     <%= form.text_area :body, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.submit class: "btn btn-lg btn-primary" %>
+    <%= form.submit class: "btn btn-lg btn-success" %>
   </div>
 <% end %>

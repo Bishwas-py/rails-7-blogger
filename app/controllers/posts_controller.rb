@@ -9,6 +9,8 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @post.update(views: @post.views + 1)
+    @comments = @post.comments.order(created_at: :desc)
+    puts("@comments.inpect: #{@comments.first.inspect}")
   end
 
   # GET /posts/new
@@ -67,6 +69,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :subtitle)
     end
 end
